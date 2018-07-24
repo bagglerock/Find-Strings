@@ -52,15 +52,15 @@ function findStrings(w, queries) {
         }
     }
     let unique_array = Array.from(new Set(combined))
-    console.log(unique_array);
-    console.log(queries);
+    let output = [];
     for (let i = 0; i < queries.length; i++){
-        if (queries[i] > unique_array.length - 1){
-            console.log("INVALID");
+        if (queries[i] > unique_array.length){
+            output.push("INVALID");
         } else {
-            console.log(unique_array[queries[i]]) 
+            output.push(unique_array[queries[i] - 1])
         }
     }
+    return output;
         
 }
 
