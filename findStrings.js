@@ -45,17 +45,23 @@ function findStrings(w, queries) {
             }
         }
         substringsArray.push(substrings);
-        
-
     }
     if (substringsArray.length > 1){
         for (let i = 0; i < substringsArray.length - 1; i++){
             combined = substringsArray[i].concat(substringsArray[i+1]);
         }
     }
-
-    console.log(combined);
-
+    let unique_array = Array.from(new Set(combined))
+    console.log(unique_array);
+    console.log(queries);
+    for (let i = 0; i < queries.length; i++){
+        if (queries[i] > unique_array.length - 1){
+            console.log("INVALID");
+        } else {
+            console.log(unique_array[queries[i]]) 
+        }
+    }
+        
 }
 
 function main() {
