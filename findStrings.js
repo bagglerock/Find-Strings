@@ -26,14 +26,12 @@ function readLine() {
  * Complete the findStrings function below.
  */
 function findStrings(w, queries) {
-    /*
-     * Write your code here.
-     */
+    
     let substringsArray = [];
+    let combined = [];
+    
     for (let i = 0; i < w.length; i++){
-        //make substring
         let substrings = [];
-        //loop through the w[i] to push all combos and push into substring
         for (let j = 0; j < w[i].length; j++){
             for (let k = 0; k < w[i].length; k++){
                 if (j !== k && j < k){
@@ -47,9 +45,16 @@ function findStrings(w, queries) {
             }
         }
         substringsArray.push(substrings);
+        
 
     }
-    console.log(substringsArray);
+    if (substringsArray.length > 1){
+        for (let i = 0; i < substringsArray.length - 1; i++){
+            combined = substringsArray[i].concat(substringsArray[i+1]);
+        }
+    }
+
+    console.log(combined);
 
 }
 
